@@ -1,0 +1,16 @@
+PATH
+  remote: ..
+  specs:
+    podcast_api (1.0.1)
+
+GEM
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  podcast_api!
+
+BUNDLED WITH
+   1.17.2
