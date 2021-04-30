@@ -14,14 +14,15 @@ module PodcastApi
         @@BASE_URL_PROD = 'https://listen-api.listennotes.com/api/v2'
         @@BASE_URL_TEST = 'https://listen-api-test.listennotes.com/api/v2'
 
+        attr_reader :base_url
+
         def initialize(api_key: nil, user_agent: nil)
             @api_key = api_key
             @base_url = api_key ? @@BASE_URL_PROD : @@BASE_URL_TEST
             @headers = {
-                'X-ListenAPI-Key' => @api_key,
+                'X-ListenAPI-Key' => @api_key ? @api_key : '',
                 'User-Agent' => user_agent ? user_agent : "podcasts-api-ruby #{VERSION}"
             }
-            puts @headers
         end    
 
         protected
