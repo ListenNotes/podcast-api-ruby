@@ -8,4 +8,5 @@ group :development do
   gem "mocha"
   gem "rake"
   gem "test-unit"
+  gem "bundler"
 end

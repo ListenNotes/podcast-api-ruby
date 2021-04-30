@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    podcast_api (1.0.1)
+    podcast_api (1.0.2)
       httparty
 
 GEM
@@ -24,6 +24,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   mocha
   podcast_api!
   rake
