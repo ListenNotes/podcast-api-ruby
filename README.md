@@ -6,10 +6,15 @@
 The Podcast API Ruby library provides convenient access to the [Listen Notes Podcast API](https://www.listennotes.com/api/) from
 applications written in Ruby.
 
-Simple and no-nonsense podcast search & directory API. Search the meta data of all podcasts and episodes by people, places, or topics. It's the same API that powers the [best podcast search engine listennotes.com](https://www.listennotes.com/).
+Simple and no-nonsense podcast search & directory API. Search the meta data of all podcasts and episodes by people, places, or topics. It's the same API that powers the [best podcast search engine Listen Notes](https://www.listennotes.com/).
+
+If you have any questions, please contact [hello@listennotes.com](hello@listennotes.com?subject=Questions+about+the+Ruby+SDK+of+Listen+API)
 
 <a href="https://www.listennotes.com/api/"><img src="https://raw.githubusercontent.com/ListenNotes/ListenApiDemo/master/web/src/powered_by_listennotes.png" width="300" /></a>
 
+
+
+**Table of Contents**
 
 - [Podcast API Ruby Library](#podcast-api-ruby-library)
   - [Installation](#installation)
@@ -92,6 +97,15 @@ You can see all available API endpoints and parameters on the API Docs page at [
 
 Unsuccessful requests raise exceptions. The class of the exception will reflect
 the sort of error that occurred.
+
+| Exception Class  | Description |
+| ------------- | ------------- |
+|  AuthenticationError | wrong api key or your account is suspended  |
+| APIConnectionError  | fail to connect to API servers  |
+| InvalidRequestError  | something wrong on your end (client side errors), e.g., missing required parameters  |
+| RateLimitError  | you are using FREE plan and you exceed the quota limit  |
+| NotFoundError  | endpoint not exist, or podcast / episode not exist  |
+| PodcastApiError  | something wrong on our end (unexpected server errors)  |
 
 All exception classes can be found in [this file](https://github.com/ListenNotes/podcast-api-ruby/blob/main/lib/errors.rb).
 
