@@ -19,8 +19,5 @@ module PodcastApi
     end
   
     class NotFoundError < PodcastApiError
-    end    
-
-    class APIConnectionError < PodcastApiError
-    end        
+    end           
 end
