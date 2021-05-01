@@ -76,10 +76,12 @@ module PodcastApi
         end        
 
         def batch_fetch_podcasts(**kwargs)
+            @headers['Content-Type'] = 'application/x-www-form-urlencoded'            
             return send_http_request('post', "#{@base_url}/podcasts", {body: kwargs, headers: @headers})
         end         
 
         def batch_fetch_episodes(**kwargs)
+            @headers['Content-Type'] = 'application/x-www-form-urlencoded'            
             return send_http_request('post', "#{@base_url}/episodes", {body: kwargs, headers: @headers})
         end              
 
@@ -89,7 +91,6 @@ module PodcastApi
         end      
         
         def fetch_curated_podcasts_lists(**kwargs)
-            id = kwargs.delete(:id)            
             return send_http_request('get', "#{@base_url}/curated_podcasts", {query: kwargs, headers: @headers})
         end              
         
@@ -129,6 +130,7 @@ module PodcastApi
         end  
         
         def submit_podcast(**kwargs)
+            @headers['Content-Type'] = 'application/x-www-form-urlencoded'            
             return send_http_request('post', "#{@base_url}/podcasts/submit", {body: kwargs, headers: @headers})
         end       
         
