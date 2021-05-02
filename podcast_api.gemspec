@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3.0"
   s.summary = "Ruby bindings for the Listen Notes Podcast API"
   s.description = "Listen Notes is the best podcast search engine and api.  " \
+                  "This is the official Ruby Gem for the Listen Notes Podcast API. " \
                   "See https://www.listennotes.com/api/ for details."
   s.author = "Listen Notes, Inc."
   s.email = "hello@listennotes.com"

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    podcast_api (1.0.3)
+    podcast_api (1.0.4)
       httparty
 
 GEM
