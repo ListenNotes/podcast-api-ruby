@@ -44,7 +44,7 @@ If you have any questions, please contact [hello@listennotes.com](hello@listenno
 
 ## Installation
 
-Install the package with:
+Install [the official Ruby Gem](https://rubygems.org/gems/podcast_api) of the Listen Notes Podcast API:
 ```sh
 gem install podcast_api
 ```
