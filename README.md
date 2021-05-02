@@ -91,7 +91,6 @@ end
 
 If `api_key` is nil, then we'll connect to a [mock server](https://www.listennotes.com/api/tutorials/#faq0) that returns fake data for testing purposes.
 
-You can see all available API endpoints and parameters on the API Docs page at [listennotes.com/api/docs/](https://www.listennotes.com/api/docs/).
 
 ### Handling exceptions
 
@@ -137,7 +136,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -156,7 +155,7 @@ See all available parameters on the [API Docs page](https://www.listennotes.com/
   
 ```json
 {
-  "took": 0.305,
+  "took": 0.693,
   "count": 10,
   "total": 9499,
   "results": [
@@ -974,7 +973,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -1183,7 +1182,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -1736,7 +1735,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -2142,7 +2141,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -2313,7 +2312,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -2504,7 +2503,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -3824,7 +3823,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -4039,7 +4038,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -4714,7 +4713,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -4761,11 +4760,11 @@ See all available parameters on the [API Docs page](https://www.listennotes.com/
       "listennotes_edit_url": "https://www.listennotes.com/e/6bbdd8cf36894d27b52c778db363319a/#edit"
     },
     {
-      "id": "55828aaa81ee4153a6f37c1af1fdccff",
-      "link": "https://allinchamathjason.libsyn.com/e21-media-misalignment-subjects-controlling-narratives-more-with-bestie-guestie-draymond-green?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
-      "audio": "https://www.listennotes.com/e/p/55828aaa81ee4153a6f37c1af1fdccff/",
+      "id": "b9d13637a7074a3c990f9f166b728e1e",
+      "link": "https://allinchamathjason.libsyn.com/e16-reflecting-on-the-riots-at-the-us-capitol-plus-georgia-runoff-elections-vaccine-distribution-more?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+      "audio": "https://www.listennotes.com/e/p/b9d13637a7074a3c990f9f166b728e1e/",
       "image": "https://cdn-images-1.listennotes.com/podcasts/all-in-with-chamath-jason-sacks-friedberg-NpyF_7WBYua-0eWaLuirNTJ.1400x1400.jpg",
-      "title": "E21: Media misalignment, subjects controlling narratives & more with bestie guestie Draymond Green",
+      "title": "E16: Reflecting on the riots at the US Capitol, plus: Georgia runoff elections, vaccine distribution & more",
       "podcast": {
         "id": "40b72ce8610649529542575dedf06c86",
         "image": "https://cdn-images-1.listennotes.com/podcasts/all-in-with-chamath-jason-sacks-friedberg-NpyF_7WBYua-0eWaLuirNTJ.1400x1400.jpg",
@@ -4777,40 +4776,40 @@ See all available parameters on the [API Docs page](https://www.listennotes.com/
         "listen_score_global_rank": "0.1%"
       },
       "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/all-in-with-chamath-jason-sacks-friedberg-yCpUza38HRh-0eWaLuirNTJ.300x300.jpg",
-      "description": "<p>Follow the besties:</p> <p><a href= \"https://twitter.com/chamath\">https://twitter.com/chamath</a></p> <p><a href= \"https://linktr.ee/calacanis\">https://linktr.ee/calacanis</a></p> <p><a href= \"https://twitter.com/DavidSacks\">https://twitter.com/DavidSacks</a></p> <p><a href= \"https://twitter.com/friedberg\">https://twitter.com/friedberg</a></p> <p><a href= \"https://twitter.com/Money23Green\">https://twitter.com/Money23Green</a></p> <p>Follow the pod:</p> <p><a href= \"https://twitter.com/theallinpod\">https://twitter.com/theallinpod</a></p> <p><a href= \"https://linktr.ee/allinpodcast\">https://linktr.ee/allinpodcast</a></p> <p>Intro Music Credit:</p> <p><a href=\"https://rb.gy/tppkzl\">https://rb.gy/tppkzl</a></p> <p><a href= \"https://twitter.com/yung_spielburg\">https://twitter.com/yung_spielburg</a></p> <p>Intro Video Credit:</p> <p><a href= \"https://twitter.com/MikeSylvan\">https://twitter.com/MikeSylvan</a></p> <p>Referenced in the show:</p> <p>David Sacks on Tucker Carlson</p> <p><a href= \"https://youtu.be/MukXS8uaVns\">https://youtu.be/MukXS8uaVns</a></p> <p>Gell-Mann Amnesia</p> <p><a href= \"https://www.epsilontheory.com/gell-mann-amnesia\">https://www.epsilontheory.com/gell-mann-amnesia</a></p> <p>Show Notes:</p> <p>0:00 Discussing Sacks' recent hit on Tucker Carlson</p> <p>7:25 Media misalignment, subjects as sources, new age of journalism</p> <p>25:53 Bold prediction for the future of media, potential All-In Network, mistrusting everyone except individuals</p> <p>34:28 Bestie Guestie Draymond Green joins the show to talk dealing with day-to-day NBA life under COVID protocols, the temperature of the nation, issues with the media & more</p> <p>1:08:02 Mean tweets</p>",
-      "pub_date_ms": 1612583957000,
-      "guid_from_rss": "23fa090b-a6ae-4862-99dd-135b6d8d7004",
-      "listennotes_url": "https://www.listennotes.com/e/55828aaa81ee4153a6f37c1af1fdccff/",
-      "audio_length_sec": 4524,
+      "description": "<p>Follow the crew:</p> <p><a href= \"https://twitter.com/chamath\">https://twitter.com/chamath</a></p> <p><a href= \"https://linktr.ee/calacanis\">https://linktr.ee/calacanis</a></p> <p><a href= \"https://twitter.com/DavidSacks\">https://twitter.com/DavidSacks</a></p> <p><a href= \"https://twitter.com/friedberg\">https://twitter.com/friedberg</a></p> <p>Follow the pod:</p> <p><a href= \"https://twitter.com/theallinpod\">https://twitter.com/theallinpod</a></p> <p><a href= \"https://linktr.ee/allinpodcast\">https://linktr.ee/allinpodcast</a></p> <p>Intro Music Credit:</p> <p><a href=\"https://rb.gy/aizgdm\">https://rb.gy/aizgdm</a></p> <p>Intro Video Credit:</p> <p><a href= \"https://twitter.com/MikeSylvan\">https://twitter.com/MikeSylvan</a></p> <p>Referenced in the show:</p> <p>The Killer D.A. by David Sacks</p> <p><a href=\"https://rb.gy/k5rz0k\">https://rb.gy/k5rz0k</a></p> <p>Show Notes:</p> <p>0:00 New intro for the besties - listen here: <a href= \"https://rb.gy/aizgdm\">https://rb.gy/aizgdm</a></p> <p>2:14 Sacks' trip to Miami</p> <p>6:01 Reflecting on the riot at the US Capitol: police response, double standard with BLM protest, big picture, prosecuting Trump & healing the nation post-Trump</p> <p>29:43 2016 Election interference, reasons for unrest & polarization, Trump's culpability</p> <p>44:19 Should the 25th Amendment be invoked?</p> <p>49:51 Democrats win Georgia runoff elections, did Trump's implosion lose Georgia for the GOP?</p> <p>56:23 How Friedberg would handle vaccine distribution</p> <p>1:07:45 San Francisco's Killer D.A., recalling Gavin Newsom, Kim Kardashian for Governor of CA</p>",
+      "pub_date_ms": 1610088436000,
+      "guid_from_rss": "79029f1c-824a-424d-a8d2-1ebd29506c6e",
+      "listennotes_url": "https://www.listennotes.com/e/b9d13637a7074a3c990f9f166b728e1e/",
+      "audio_length_sec": 4979,
       "explicit_content": false,
       "maybe_audio_invalid": false,
-      "listennotes_edit_url": "https://www.listennotes.com/e/55828aaa81ee4153a6f37c1af1fdccff/#edit"
+      "listennotes_edit_url": "https://www.listennotes.com/e/b9d13637a7074a3c990f9f166b728e1e/#edit"
     },
     {
-      "id": "c4816f8ff1864bcaaa222fa5e75b08bd",
-      "link": "https://theverge.com?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
-      "audio": "https://www.listennotes.com/e/p/c4816f8ff1864bcaaa222fa5e75b08bd/",
-      "image": "https://cdn-images-1.listennotes.com/podcasts/decoder-with-nilay-patel-the-verge-drGBLTzbZgP-8himIA5jU-o.1400x1400.jpg",
-      "title": "Recode Decode: Jason Calacanis",
+      "id": "f899c0d4d8cd448ca91b6821c0e18f0f",
+      "link": "https://share.transistor.fm/s/353d5b5b?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+      "audio": "https://www.listennotes.com/e/p/f899c0d4d8cd448ca91b6821c0e18f0f/",
+      "image": "https://cdn-images-1.listennotes.com/podcasts/rework-basecamp-Ah8QgG7fNp9-rQRTM0OpCAo.1400x1400.jpg",
+      "title": "Extreme Capitalism with Jason Calacanis",
       "podcast": {
-        "id": "3675e4e89a854ad88a3ef0927df93dec",
-        "image": "https://cdn-images-1.listennotes.com/podcasts/decoder-with-nilay-patel-the-verge-drGBLTzbZgP-8himIA5jU-o.1400x1400.jpg",
-        "title": "Decoder with Nilay Patel",
-        "publisher": "The Verge",
-        "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/decoder-with-nilay-patel-the-verge-xJYoe1QGja4-8himIA5jU-o.300x300.jpg",
-        "listen_score": 68,
-        "listennotes_url": "https://www.listennotes.com/c/3675e4e89a854ad88a3ef0927df93dec/",
-        "listen_score_global_rank": "0.05%"
+        "id": "bde518d2cb22433d8f7a1e16e18aa1b7",
+        "image": "https://cdn-images-1.listennotes.com/podcasts/rework-basecamp-Ah8QgG7fNp9-rQRTM0OpCAo.1400x1400.jpg",
+        "title": "Rework",
+        "publisher": "Basecamp",
+        "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/rework-basecamp-Dq6sV2huSAe-rQRTM0OpCAo.300x300.jpg",
+        "listen_score": 50,
+        "listennotes_url": "https://www.listennotes.com/c/bde518d2cb22433d8f7a1e16e18aa1b7/",
+        "listen_score_global_rank": "1%"
       },
-      "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/decoder-with-nilay-patel-the-verge-xJYoe1QGja4-8himIA5jU-o.300x300.jpg",
-      "description": "<p>Inside CEO and This Week in Startups host Jason Calacanis talks with Kara Swisher about the future of Uber after its troubled IPO, why one of the tech giants should buy Tesla, and Jeff Bezos' Achilles heel: His lack of generosity. Calacanis, who was an early investor in Uber, also talks about his objections to the current state of tech journalism and punditry, the end of SoftBank\u2019s \u201cfree money party,\" and why Tim Cook doesn\u2019t have the chutzpah to take Apple into the future. Plus: Why the US should ban TikTok, even if the Chinese-owned mobile app spins off an American-run unit.</p><p><strong>Featuring:</strong></p><p>Jason Calacanis (<a href=\"https://twitter.com/jason\">@Jason</a>), CEO and co-founder, Inside</p><p><strong>Host:</strong></p><p>Kara Swisher (<a href=\"https://twitter.com/karaswisher\">@karaswisher</a>), Recode co-founder and editor-at-large</p><p><strong>More to explore:</strong></p><p>On <a href=\"http://bit.ly/ResetPod\">Reset</a>, Arielle Duhaime-Ross explores why \u2014 and how \u2014 tech is changing everything.</p><p>On <a href=\"https://podcasts.apple.com/us/podcast/recode-media/id1080467174\">Recode Media</a>, Peter Kafka interviews business titans, journalists, comedians and podcasters about the collision of tech and media.</p><p>On <a href=\"https://podcasts.apple.com/us/podcast/recode-media/id1080467174\">Pivot</a>, Kara Swisher and Scott Galloway talk about the big tech news stories of the week, who's winning, who's failing, and what comes next.</p><p>And on <a href=\"https://podcasts.apple.com/us/podcast/pivot/id1073226719\">Land of the Giants</a>, Jason Del Rey chronicled the rise of Amazon. Season 2 will focus on Netflix and is coming soon!</p><p><strong>About Recode by Vox:</strong></p><p>Recode by Vox helps you understand how tech is changing the world \u2014 and changing us.</p><p><strong>Follow Us:</strong></p><p>Newsletter: <a href=\"https://events.recode.net/newsletters/subscribe/\">Recode Daily</a></p><p>Twitter: <a href=\"https://twitter.com/Recode\">@Recode</a>\u00a0and <a href=\"https://twitter.com/Voxdotcom\">@voxdotcom</a></p><p> </p><p>Learn more about your ad choices. Visit <a href=\"https://megaphone.fm/adchoices\">megaphone.fm/adchoices</a></p>",
-      "pub_date_ms": 1583125260078,
-      "guid_from_rss": "465b2bdc-eebd-11e9-85c8-171e42a72b35",
-      "listennotes_url": "https://www.listennotes.com/e/c4816f8ff1864bcaaa222fa5e75b08bd/",
-      "audio_length_sec": 4096,
+      "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/rework-basecamp-Dq6sV2huSAe-rQRTM0OpCAo.300x300.jpg",
+      "description": "Basecamp co-founder and CTO David Heinemeier Hansson and entrepreneur and angel investor Jason Calacanis debate the gig economy, democratic socialism, and whether the American dream is dead. The conversation in this episode is adapted from a longer interview that can be found in full at <a href=\"https://thisweekinstartups.com/e1029-basecamp-co-founder-author-david-heinemeier-hansson-dhh-debates-jason-on-reining-in-capitalism-benefits-of-state-run-education-healthcare-big-tech-disappointments-work-from-home-parad/\">This Week in Startups</a>.",
+      "pub_date_ms": 1582203600033,
+      "guid_from_rss": "b8af76cb-4f92-44b1-aa47-ac469a043b64",
+      "listennotes_url": "https://www.listennotes.com/e/f899c0d4d8cd448ca91b6821c0e18f0f/",
+      "audio_length_sec": 3582,
       "explicit_content": false,
       "maybe_audio_invalid": false,
-      "listennotes_edit_url": "https://www.listennotes.com/e/c4816f8ff1864bcaaa222fa5e75b08bd/#edit"
+      "listennotes_edit_url": "https://www.listennotes.com/e/f899c0d4d8cd448ca91b6821c0e18f0f/#edit"
     },
     {
       "id": "512830b5fdfb43569f0019b854c5d67f",
@@ -4839,11 +4838,11 @@ See all available parameters on the [API Docs page](https://www.listennotes.com/
       "listennotes_edit_url": "https://www.listennotes.com/e/512830b5fdfb43569f0019b854c5d67f/#edit"
     },
     {
-      "id": "b9d13637a7074a3c990f9f166b728e1e",
-      "link": "https://allinchamathjason.libsyn.com/e16-reflecting-on-the-riots-at-the-us-capitol-plus-georgia-runoff-elections-vaccine-distribution-more?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
-      "audio": "https://www.listennotes.com/e/p/b9d13637a7074a3c990f9f166b728e1e/",
+      "id": "55828aaa81ee4153a6f37c1af1fdccff",
+      "link": "https://allinchamathjason.libsyn.com/e21-media-misalignment-subjects-controlling-narratives-more-with-bestie-guestie-draymond-green?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+      "audio": "https://www.listennotes.com/e/p/55828aaa81ee4153a6f37c1af1fdccff/",
       "image": "https://cdn-images-1.listennotes.com/podcasts/all-in-with-chamath-jason-sacks-friedberg-NpyF_7WBYua-0eWaLuirNTJ.1400x1400.jpg",
-      "title": "E16: Reflecting on the riots at the US Capitol, plus: Georgia runoff elections, vaccine distribution & more",
+      "title": "E21: Media misalignment, subjects controlling narratives & more with bestie guestie Draymond Green",
       "podcast": {
         "id": "40b72ce8610649529542575dedf06c86",
         "image": "https://cdn-images-1.listennotes.com/podcasts/all-in-with-chamath-jason-sacks-friedberg-NpyF_7WBYua-0eWaLuirNTJ.1400x1400.jpg",
@@ -4855,40 +4854,40 @@ See all available parameters on the [API Docs page](https://www.listennotes.com/
         "listen_score_global_rank": "0.1%"
       },
       "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/all-in-with-chamath-jason-sacks-friedberg-yCpUza38HRh-0eWaLuirNTJ.300x300.jpg",
-      "description": "<p>Follow the crew:</p> <p><a href= \"https://twitter.com/chamath\">https://twitter.com/chamath</a></p> <p><a href= \"https://linktr.ee/calacanis\">https://linktr.ee/calacanis</a></p> <p><a href= \"https://twitter.com/DavidSacks\">https://twitter.com/DavidSacks</a></p> <p><a href= \"https://twitter.com/friedberg\">https://twitter.com/friedberg</a></p> <p>Follow the pod:</p> <p><a href= \"https://twitter.com/theallinpod\">https://twitter.com/theallinpod</a></p> <p><a href= \"https://linktr.ee/allinpodcast\">https://linktr.ee/allinpodcast</a></p> <p>Intro Music Credit:</p> <p><a href=\"https://rb.gy/aizgdm\">https://rb.gy/aizgdm</a></p> <p>Intro Video Credit:</p> <p><a href= \"https://twitter.com/MikeSylvan\">https://twitter.com/MikeSylvan</a></p> <p>Referenced in the show:</p> <p>The Killer D.A. by David Sacks</p> <p><a href=\"https://rb.gy/k5rz0k\">https://rb.gy/k5rz0k</a></p> <p>Show Notes:</p> <p>0:00 New intro for the besties - listen here: <a href= \"https://rb.gy/aizgdm\">https://rb.gy/aizgdm</a></p> <p>2:14 Sacks' trip to Miami</p> <p>6:01 Reflecting on the riot at the US Capitol: police response, double standard with BLM protest, big picture, prosecuting Trump & healing the nation post-Trump</p> <p>29:43 2016 Election interference, reasons for unrest & polarization, Trump's culpability</p> <p>44:19 Should the 25th Amendment be invoked?</p> <p>49:51 Democrats win Georgia runoff elections, did Trump's implosion lose Georgia for the GOP?</p> <p>56:23 How Friedberg would handle vaccine distribution</p> <p>1:07:45 San Francisco's Killer D.A., recalling Gavin Newsom, Kim Kardashian for Governor of CA</p>",
-      "pub_date_ms": 1610088436000,
-      "guid_from_rss": "79029f1c-824a-424d-a8d2-1ebd29506c6e",
-      "listennotes_url": "https://www.listennotes.com/e/b9d13637a7074a3c990f9f166b728e1e/",
-      "audio_length_sec": 4979,
+      "description": "<p>Follow the besties:</p> <p><a href= \"https://twitter.com/chamath\">https://twitter.com/chamath</a></p> <p><a href= \"https://linktr.ee/calacanis\">https://linktr.ee/calacanis</a></p> <p><a href= \"https://twitter.com/DavidSacks\">https://twitter.com/DavidSacks</a></p> <p><a href= \"https://twitter.com/friedberg\">https://twitter.com/friedberg</a></p> <p><a href= \"https://twitter.com/Money23Green\">https://twitter.com/Money23Green</a></p> <p>Follow the pod:</p> <p><a href= \"https://twitter.com/theallinpod\">https://twitter.com/theallinpod</a></p> <p><a href= \"https://linktr.ee/allinpodcast\">https://linktr.ee/allinpodcast</a></p> <p>Intro Music Credit:</p> <p><a href=\"https://rb.gy/tppkzl\">https://rb.gy/tppkzl</a></p> <p><a href= \"https://twitter.com/yung_spielburg\">https://twitter.com/yung_spielburg</a></p> <p>Intro Video Credit:</p> <p><a href= \"https://twitter.com/MikeSylvan\">https://twitter.com/MikeSylvan</a></p> <p>Referenced in the show:</p> <p>David Sacks on Tucker Carlson</p> <p><a href= \"https://youtu.be/MukXS8uaVns\">https://youtu.be/MukXS8uaVns</a></p> <p>Gell-Mann Amnesia</p> <p><a href= \"https://www.epsilontheory.com/gell-mann-amnesia\">https://www.epsilontheory.com/gell-mann-amnesia</a></p> <p>Show Notes:</p> <p>0:00 Discussing Sacks' recent hit on Tucker Carlson</p> <p>7:25 Media misalignment, subjects as sources, new age of journalism</p> <p>25:53 Bold prediction for the future of media, potential All-In Network, mistrusting everyone except individuals</p> <p>34:28 Bestie Guestie Draymond Green joins the show to talk dealing with day-to-day NBA life under COVID protocols, the temperature of the nation, issues with the media & more</p> <p>1:08:02 Mean tweets</p>",
+      "pub_date_ms": 1612583957000,
+      "guid_from_rss": "23fa090b-a6ae-4862-99dd-135b6d8d7004",
+      "listennotes_url": "https://www.listennotes.com/e/55828aaa81ee4153a6f37c1af1fdccff/",
+      "audio_length_sec": 4524,
       "explicit_content": false,
       "maybe_audio_invalid": false,
-      "listennotes_edit_url": "https://www.listennotes.com/e/b9d13637a7074a3c990f9f166b728e1e/#edit"
+      "listennotes_edit_url": "https://www.listennotes.com/e/55828aaa81ee4153a6f37c1af1fdccff/#edit"
     },
     {
-      "id": "43e30e7ff2bb4027ab113912cf8b4ac4",
-      "link": "https://podcasts.apple.com/us/podcast/axios-pro-rata/id1412162689?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
-      "audio": "https://www.listennotes.com/e/p/43e30e7ff2bb4027ab113912cf8b4ac4/",
-      "image": "https://cdn-images-1.listennotes.com/podcasts/axios-recap-axios-239AsyFelYN-mnzBj0JP6Go.1400x1400.jpg",
-      "title": "Jason Calacanis on tech vs. tech media",
+      "id": "ea8ed0394b28400c88f91faf319d2d5d",
+      "link": "http://feedproxy.google.com/~r/twist-audio/~3/7Rbj1ZDSBII/?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+      "audio": "https://www.listennotes.com/e/p/ea8ed0394b28400c88f91faf319d2d5d/",
+      "image": "https://cdn-images-1.listennotes.com/podcasts/this-week-in-startups-jason-calacanis-rMEoeGBJqt1-EKckR36zrnA.1400x1400.jpg",
+      "title": "Building a production location marketplace with Hank Leber, Co-Founder of Giggster | E1196",
       "podcast": {
-        "id": "bd9b9927985143bc9d7e97c48048e365",
-        "image": "https://cdn-images-1.listennotes.com/podcasts/axios-recap-axios-239AsyFelYN-mnzBj0JP6Go.1400x1400.jpg",
-        "title": "Axios Re:Cap",
-        "publisher": "Axios",
-        "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/axios-recap-axios-tqRMvBHFo3G-mnzBj0JP6Go.300x300.jpg",
-        "listen_score": 55,
-        "listennotes_url": "https://www.listennotes.com/c/bd9b9927985143bc9d7e97c48048e365/",
+        "id": "9a62e2581908415185dee35d2d19f9b5",
+        "image": "https://cdn-images-1.listennotes.com/podcasts/this-week-in-startups-jason-calacanis-rMEoeGBJqt1-EKckR36zrnA.1400x1400.jpg",
+        "title": "This Week in Startups",
+        "publisher": "Jason Calacanis",
+        "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/this-week-in-startups-jason-calacanis-txh7pAS-Xsy-EKckR36zrnA.300x300.jpg",
+        "listen_score": 62,
+        "listennotes_url": "https://www.listennotes.com/c/9a62e2581908415185dee35d2d19f9b5/",
         "listen_score_global_rank": "0.5%"
       },
-      "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/axios-recap-axios-tqRMvBHFo3G-mnzBj0JP6Go.300x300.jpg",
-      "description": "<p>Over the weekend, tensions between media and tech escalated because of a dispute that started on Clubhouse and spilled over to Twitter. But the divide between tech and the journalists covering tech has been growing for some time. Dan digs in with investor and entrepreneur Jason Calacanis, who has been on both sides of the tech/media divide.</p><p> </p><p>Learn more about your ad choices. Visit <a href=\"https://megaphone.fm/adchoices\">megaphone.fm/adchoices</a></p>",
-      "pub_date_ms": 1594067455205,
-      "guid_from_rss": "80960804-bfc7-11ea-9fe4-df2924ba6613",
-      "listennotes_url": "https://www.listennotes.com/e/43e30e7ff2bb4027ab113912cf8b4ac4/",
-      "audio_length_sec": 718,
+      "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/this-week-in-startups-jason-calacanis-txh7pAS-Xsy-EKckR36zrnA.300x300.jpg",
+      "description": "Hank Leber, co-founder of Giggster, talks about growing their production location marketplace, onboarding 10,000 locations from a totally offline process and building \"Airbnb for professional locations\" (0:00). He shares Giggster's fundraising history and the impact of raising at Remote Demo Day (17:35), and also dives into common use cases and more (30:05)! Check out the advanced pod notes here: https://bit.ly/twist-notes-giggster\n\nFOUNDERS! Apply to pitch 7000+ angel investors at Remote Demo Day here: https://remotedemoday.com<img src=\"http://feeds.feedburner.com/~r/twist-audio/~4/7Rbj1ZDSBII\" height=\"1\" width=\"1\" alt=\"\"/>",
+      "pub_date_ms": 1617999352000,
+      "guid_from_rss": "https://thisweekinstartups.com/?p=42498",
+      "listennotes_url": "https://www.listennotes.com/e/ea8ed0394b28400c88f91faf319d2d5d/",
+      "audio_length_sec": 3121,
       "explicit_content": false,
       "maybe_audio_invalid": false,
-      "listennotes_edit_url": "https://www.listennotes.com/e/43e30e7ff2bb4027ab113912cf8b4ac4/#edit"
+      "listennotes_edit_url": "https://www.listennotes.com/e/ea8ed0394b28400c88f91faf319d2d5d/#edit"
     },
     {
       "id": "23edf77bbc8e458eae6b4a70763e909a",
@@ -5097,7 +5096,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -5328,7 +5327,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -6511,7 +6510,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -6530,30 +6529,30 @@ See all available parameters on the [API Docs page](https://www.listennotes.com/
   
 ```json
 {
-  "id": "50ff04b877cf4eb49c219d3865a840e0",
-  "link": "https://www.faimission.org?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
-  "audio": "https://www.listennotes.com/e/p/50ff04b877cf4eb49c219d3865a840e0/",
-  "image": "https://cdn-images-1.listennotes.com/podcasts/the-better/the-better-farewell-the-c9ZzeOm2Ii6-hG83zr1HIsY.1024x1024.jpg",
-  "title": "The Better Farewell: The Kingdom & the Truth",
+  "id": "f984973b797443308f87d2f2216bd5f8",
+  "link": "https://blubrry.com/fortheloveofclimbing/76270669/26-im-a-liver-not-a-fighter/?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website",
+  "audio": "https://www.listennotes.com/e/p/f984973b797443308f87d2f2216bd5f8/",
+  "image": "https://cdn-images-1.listennotes.com/podcasts/for-the-love-of-climbing-kathy-karlo-OigJy-n5_ZL-e-gnMlHp0x4.1400x1400.jpg",
+  "title": "26: I\u2019m a Liver, Not a Fighter",
   "podcast": {
-    "id": "73f9dc6a984444c795fd2e4be88c9fd4",
-    "image": "https://cdn-images-1.listennotes.com/podcasts/the-better-beautiful-the-answer-to-every-zfJyr5qvthc-TM2mCLjtnBU.1400x1400.jpg",
-    "title": "The Better Beautiful // The Answer to Every Question",
-    "publisher": "Frontier Alliance International ",
-    "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/the-better-beautiful-the-answer-to-every-TGue-DM3haW-TM2mCLjtnBU.300x300.jpg",
-    "listen_score": 31,
-    "listennotes_url": "https://www.listennotes.com/c/73f9dc6a984444c795fd2e4be88c9fd4/",
-    "listen_score_global_rank": "10%"
+    "id": "26a816baaff0471da32906db5a044568",
+    "image": "https://cdn-images-1.listennotes.com/podcasts/for-the-love-of-climbing-kathy-karlo-OigJy-n5_ZL-e-gnMlHp0x4.1400x1400.jpg",
+    "title": "For the Love of Climbing",
+    "publisher": "Kathy Karlo",
+    "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/for-the-love-of-climbing-kathy-karlo-V8kKof-mMZR-e-gnMlHp0x4.300x300.jpg",
+    "listen_score": 53,
+    "listennotes_url": "https://www.listennotes.com/c/26a816baaff0471da32906db5a044568/",
+    "listen_score_global_rank": "0.5%"
   },
-  "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/the-better/the-better-farewell-the-NJ_Hwgk5fvO-hG83zr1HIsY.300x300.jpg",
-  "description": "At the end of the day and the end of the age, there is but one King and one Truth. His Kingdom is not, will not, and cannot be tainted with the carnality of the flesh; it is \"not of this world.\" We may only participate in His Kingdom with submission to His righteousness\u2014and His alone. The \"kings of the earth\" will \"rage\" and \"plot in vain,\" many with Pilate's cynicism on their lips: \"What is truth?\"\n\nListen to Part 22 of 'The Better Farewell' now, as we examine the Man on a steadfast mission to disarm the powers of the air, make a spectacle of their folly, and leverage a cursed execution to put the manifold wisdom of God on a magnificent, everlasting display.\n\nDURATION: 53 minutes",
-  "pub_date_ms": 1619863200000,
-  "guid_from_rss": "c1d541814c5704b40f447527c050d929",
-  "listennotes_url": "https://www.listennotes.com/e/50ff04b877cf4eb49c219d3865a840e0/",
-  "audio_length_sec": 3227,
+  "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/for-the-love-of-climbing-kathy-karlo-V8kKof-mMZR-e-gnMlHp0x4.300x300.jpg",
+  "description": "<p class=\"p1\"><span class=\"s1\">Cedar, who was named after a tree, has achieved a lot in her almost-decade of being alive\u2014she has a podcast, she\u2019s sort of a Do-It-Yourself queen, an accomplished video game champion (thanks to Covid), and she likes a lot of, you know, normal kid stuff\u2014not including getting a liver transplant at the age of five.</span></p>\n<p class=\"p2\">\u00a0</p>\n<p class=\"p1\"><span class=\"s1\">Cedar has something called Progressive Familial Intrahepatic Cholestasis, otherwise known as PFIC 2. This devastating genetic disorder affects 1 in 50,000 to 1 in 100,000 live births and, if untreated, can be fatal by the age of twenty. Visit <a href=\"http://pfic.org\">pfic.org</a> for more information.</span></p>\n<p class=\"p1\"><span class=\"s1\"><br /></span></p>\n<p class=\"p3\"><span class=\"s1\"><strong></strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong>This mini-episode is brought to you by </strong><a href=\"https://www.deuter.com/us-en\"><span class=\"s2\"><strong>Deuter USA</strong></span></a><strong>, </strong><a href=\"https://gognarly.com/\"><span class=\"s2\"><strong>Gnarly Nutrition</strong></span></a><strong>, </strong><a href=\"https://allezoutdoor.com/\"><span class=\"s2\"><strong>Allez Outdoors</strong></span></a><strong>, </strong><a href=\"https://www.firstascentcoffee.com/\"><span class=\"s2\"><strong>First Ascent Coffee</strong></span></a><strong>, and </strong><a href=\"https://www.patagonia.com/home/\"><span class=\"s2\"><strong>Patagonia</strong></span></a><strong>.</strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong><br /></strong></span></p>\n<p class=\"p3\"><span class=\"s1\"><strong></strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong>Music by: Kakurenbo and Podington Bear. Additional music licensed by Music Bed. A HUGE thank you to Chad Crouch for creating absolute magic and to Peter Darmi for mixing this episode.</strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong><br /></strong></span></p>\n<p class=\"p3\"><span class=\"s1\"><strong></strong></span></p>\n<p class=\"p4\"><span class=\"s1\">Additional sound effects from zapsplat.com.</span></p>\n<p class=\"p4\"><span class=\"s1\"><br /></span></p>\n<p class=\"p3\"><span class=\"s1\"><strong></strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong>Cover photo by </strong><a href=\"https://www.kikamacfarlane.co/\"><span class=\"s2\"><strong>Kika MacFarlane</strong></span></a><strong>.</strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong><br /></strong></span></p>\n<p class=\"p3\"><span class=\"s1\"><strong></strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong>Read the transcript </strong><a href=\"https://www.fortheloveofclimbing.com/episodes/mini-episode-9-i-did-not-know\"><span class=\"s3\"><strong>here</strong></span></a><strong>.</strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong><br /></strong></span></p>\n<p class=\"p3\"><span class=\"s1\"><strong></strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong>Follow us on </strong><a href=\"https://www.instagram.com/inheadlights/\"><span class=\"s4\"><strong>Instagram</strong></span></a><strong> for podcast (pod-Kath?) updates and general life things.</strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong><br /></strong></span></p>\n<p class=\"p3\"><span class=\"s1\"><strong></strong></span></p>\n<p class=\"p4\"><span class=\"s1\"><strong>Support us on </strong><a href=\"https://www.patreon.com/fortheloveofclimbing\"><span class=\"s4\"><strong>Patreon</strong></span></a><strong> in exchange for a warm, fuzzy feeling.</strong></span></p>",
+  "pub_date_ms": 1619869680000,
+  "guid_from_rss": "http://www.blubrry.com/fortheloveofclimbing/76270669/26-im-a-liver-not-a-fighter/",
+  "listennotes_url": "https://www.listennotes.com/e/f984973b797443308f87d2f2216bd5f8/",
+  "audio_length_sec": 2201,
   "explicit_content": false,
   "maybe_audio_invalid": false,
-  "listennotes_edit_url": "https://www.listennotes.com/e/50ff04b877cf4eb49c219d3865a840e0/#edit"
+  "listennotes_edit_url": "https://www.listennotes.com/e/f984973b797443308f87d2f2216bd5f8/#edit"
 }
 ```   
 </details>
@@ -6698,7 +6697,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -7799,7 +7798,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -9229,7 +9228,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -9350,7 +9349,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -9422,7 +9421,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -10618,7 +10617,7 @@ Example:
 
 require "podcast_api"
 
-# If api_key is None, the sdk will connect to a mock server that'll
+# If api_key is nil, the sdk will connect to a mock server that'll
 # return fake data for testing purpose
 api_key = ENV["LISTEN_API_KEY"]
 client = PodcastApi::Client.new(api_key: api_key)
@@ -10775,7 +10774,7 @@ See all available parameters on the [API Docs page](https://www.listennotes.com/
       "type": "integer",
       "example": 3
     },
-    "previous_page_number
+    "previous_page_number": {
       "type": "integer",
       "example": 1
     }
