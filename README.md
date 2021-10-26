@@ -1,6 +1,6 @@
 # Podcast API Ruby Library
 
-[![Build Status](https://travis-ci.com/ListenNotes/podcast-api-ruby.svg?branch=main)](https://travis-ci.com/ListenNotes/podcast-api-ruby)
+[![Ruby CI](https://github.com/ListenNotes/podcast-api-ruby/actions/workflows/ruby.yml/badge.svg)](https://github.com/ListenNotes/podcast-api-ruby/actions/workflows/ruby.yml)
 
 
 The Podcast API Ruby library provides convenient access to the [Listen Notes Podcast API](https://www.listennotes.com/api/) from
