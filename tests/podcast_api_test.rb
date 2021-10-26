@@ -33,6 +33,34 @@ class PodcastApiTest < Test::Unit::TestCase
     assert response['terms'].length > 0
   end  
 
+  def test_spellcheck_with_mock
+    term = 'test123'
+    client = PodcastApi::Client.new
+    response = client.spellcheck(q: term)
+    assert_equal response.request.options[:query][:q], term
+    assert_equal response.request.http_method, Net::HTTP::Get
+    assert_equal response.request.path.path, '/api/v2/spellcheck'
+    assert response['tokens'].length > 0
+  end   
+  
+  def test_related_searches_with_mock
+    term = 'test123'
+    client = PodcastApi::Client.new
+    response = client.fetch_related_searches(q: term)
+    assert_equal response.request.options[:query][:q], term
+    assert_equal response.request.http_method, Net::HTTP::Get
+    assert_equal response.request.path.path, '/api/v2/related_searches'
+    assert response['terms'].length > 0
+  end     
+
+  def test_trending_searches_with_mock
+    client = PodcastApi::Client.new
+    response = client.fetch_trending_searches()
+    assert_equal response.request.http_method, Net::HTTP::Get
+    assert_equal response.request.path.path, '/api/v2/trending_searches'
+    assert response['terms'].length > 0
+  end       
+
   def test_fetch_best_podcasts_with_mock
     genre_id = 123
     client = PodcastApi::Client.new

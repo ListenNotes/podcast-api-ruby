@@ -61,6 +61,18 @@ module PodcastApi
             return send_http_request('get', "#{@base_url}/typeahead", {query: kwargs, headers: @headers})
         end
         
+        def spellcheck(**kwargs)
+            return send_http_request('get', "#{@base_url}/spellcheck", {query: kwargs, headers: @headers})
+        end
+        
+        def fetch_related_searches(**kwargs)
+            return send_http_request('get', "#{@base_url}/related_searches", {query: kwargs, headers: @headers})
+        end
+        
+        def fetch_trending_searches(**kwargs)
+            return send_http_request('get', "#{@base_url}/trending_searches", {query: kwargs, headers: @headers})
+        end
+
         def fetch_best_podcasts(**kwargs)
             return send_http_request('get', "#{@base_url}/best_podcasts", {query: kwargs, headers: @headers})
         end

@@ -24,6 +24,14 @@ else
     puts "Next billing date: #{response.headers['X-Listenapi-NextBillingDate']}"
 end
 
+# response = client.spellcheck(q: 'evergrand stok')
+# puts JSON.parse(response.body)
+
+# response = client.fetch_related_searches(q: 'evergrande')
+# puts JSON.parse(response.body)
+
+# response = client.fetch_trending_searches()
+# puts JSON.parse(response.body)
 
 # response = client.typeahead(q: 'startup', show_podcasts: 1)
 # puts JSON.parse(response.body)
