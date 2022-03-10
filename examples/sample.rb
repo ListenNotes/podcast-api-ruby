@@ -13,7 +13,7 @@ rescue PodcastApi::InvalidRequestError
 rescue PodcastApi::NotFoundError
     puts 'Not found'
 rescue PodcastApi::RateLimitError
-    puts 'Reached quota limit'
+    puts 'Reached quota limit or rate limit'
 rescue PodcastApi::APIConnectionError
     puts 'Failed to connect to Listen API servers'
 rescue PodcastApi::PodcastApiError

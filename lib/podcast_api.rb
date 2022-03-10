@@ -36,7 +36,7 @@ module PodcastApi
             elsif response.code == 404
                 raise NotFoundError.new 'endpoint not exist, or podcast / episode not exist'
             elsif response.code == 429
-                raise RateLimitError.new 'you are using FREE plan and you exceed the quota limit'
+                raise RateLimitError.new 'for FREE plan, exceeding the quota limit; or for all plans, sending too many requests too fast and exceeding the rate limit - https://www.listennotes.com/api/faq/#faq17'
             else
                 raise PodcastApiError.new 'something wrong on our end (unexpected server errors)'
             end
