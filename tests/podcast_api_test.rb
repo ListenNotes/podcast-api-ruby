@@ -211,5 +211,14 @@ class PodcastApiTest < Test::Unit::TestCase
     assert_equal response.request.http_method, Net::HTTP::Get
     assert_equal response.request.path.path, "/api/v2/episodes/#{id}/recommendations"
     assert response['recommendations'].length > 0
+  end
+
+  def test_fetch_audience_for_podcast_with_mock
+    id = 'abcde'
+    client = PodcastApi::Client.new
+    response = client.fetch_audience_for_podcast(id: id)
+    assert_equal response.request.http_method, Net::HTTP::Get
+    assert_equal response.request.path.path, "/api/v2/podcasts/#{id}/audience"
+    assert response['by_regions'].length > 0
   end  
 end

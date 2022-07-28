@@ -149,6 +149,11 @@ module PodcastApi
         def delete_podcast(**kwargs)
             id = kwargs.delete(:id)            
             return send_http_request('delete', "#{@base_url}/podcasts/#{id}", {query: kwargs, headers: @headers})
+        end
+
+        def fetch_audience_for_podcast(**kwargs)
+            id = kwargs.delete(:id)            
+            return send_http_request('get', "#{@base_url}/podcasts/#{id}/audience", {query: kwargs, headers: @headers})
         end        
     end
 
