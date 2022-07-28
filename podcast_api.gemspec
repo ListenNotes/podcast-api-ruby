@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.email = "hello@listennotes.com"
   s.homepage = "https://www.PodcastAPI.com/"
   s.license = "MIT"
-  s.add_runtime_dependency "httparty"
+  s.add_runtime_dependency "httparty", '~> 0.20.0'
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/ListenNotes/podcast-api-ruby/issues",
     "changelog_uri" =>
