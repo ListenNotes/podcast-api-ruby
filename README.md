@@ -1,6 +1,6 @@
 # Podcast API Ruby Library
 
-[![Ruby CI](https://github.com/ListenNotes/podcast-api-ruby/actions/workflows/ruby.yml/badge.svg)](https://github.com/ListenNotes/podcast-api-ruby/actions/workflows/ruby.yml)
+[![Ruby CI](https://github.com/ListenNotes/podcast-api-ruby/actions/workflows/ruby.yml/badge.svg)](https://github.com/ListenNotes/podcast-api-ruby/actions/workflows/ruby.yml) ![Gem](https://img.shields.io/gem/v/podcast_api)
 
 
 The Podcast API Ruby library provides convenient access to the [Listen Notes Podcast API](https://www.listennotes.com/podcast-api/) from
