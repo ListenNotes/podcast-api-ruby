@@ -221,4 +221,13 @@ class PodcastApiTest < Test::Unit::TestCase
     assert_equal response.request.path.path, "/api/v2/podcasts/#{id}/audience"
     assert response['by_regions'].length > 0
   end  
+
+  def test_fetch_podcasts_by_domain_with_mock
+    domain_name = 'npr.org'
+    client = PodcastApi::Client.new
+    response = client.fetch_podcasts_by_domain(domain_name: domain_name, page: 3)
+    assert_equal response.request.http_method, Net::HTTP::Get
+    assert_equal response.request.path.path, "/api/v2/podcasts/domains/#{domain_name}"
+    assert response['podcasts'].length > 0
+  end  
 end

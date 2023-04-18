@@ -154,6 +154,11 @@ module PodcastApi
         def fetch_audience_for_podcast(**kwargs)
             id = kwargs.delete(:id)            
             return send_http_request('get', "#{@base_url}/podcasts/#{id}/audience", {query: kwargs, headers: @headers})
+        end
+        
+        def fetch_podcasts_by_domain(**kwargs)
+            domain_name = kwargs.delete(:domain_name)            
+            return send_http_request('get', "#{@base_url}/podcasts/domains/#{domain_name}", {query: kwargs, headers: @headers})
         end        
     end
 
