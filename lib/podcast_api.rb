@@ -57,6 +57,10 @@ module PodcastApi
             return send_http_request('get', "#{@base_url}/search", {query: kwargs, headers: @headers})
         end
 
+        def search_episode_titles(**kwargs)
+            return send_http_request('get', "#{@base_url}/search_episode_titles", {query: kwargs, headers: @headers})
+        end
+
         def typeahead(**kwargs)
             return send_http_request('get', "#{@base_url}/typeahead", {query: kwargs, headers: @headers})
         end

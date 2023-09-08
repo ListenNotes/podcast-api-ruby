@@ -22,6 +22,16 @@ class PodcastApiTest < Test::Unit::TestCase
     }
   end
 
+  def test_search_episode_titles_with_mock
+    term = 'test123'
+    client = PodcastApi::Client.new
+    response = client.search_episode_titles(q: term)
+    assert_equal response.request.options[:query][:q], term
+    assert_equal response.request.http_method, Net::HTTP::Get
+    assert_equal response.request.path.path, '/api/v2/search_episode_titles'
+    assert response['count'] > 0
+  end
+
   def test_typeahead_with_mock
     term = 'test123'
     client = PodcastApi::Client.new
