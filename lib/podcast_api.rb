@@ -1,169 +1,85 @@
 # frozen_string_literal: true
 
 require 'httparty'
-
-# Version
-require 'version'
-require 'errors'
+require 'json'
+require 'uri'
+require_relative 'version'
+require_relative 'errors'
+require_relative 'api_methods'
 
 module PodcastApi
+  class Client
+    include HTTParty
+    include ApiMethods
 
-    class Client
-        include HTTParty
+    BASE_URL_PROD = 'https://listen-api.listennotes.com/api/v2'
+    BASE_URL_TEST = 'https://listen-api-test.listennotes.com/api/v2'
+    attr_reader :base_url
 
-        @@BASE_URL_PROD = 'https://listen-api.listennotes.com/api/v2'
-        @@BASE_URL_TEST = 'https://listen-api-test.listennotes.com/api/v2'
-
-        attr_reader :base_url
-
-        def initialize(api_key: nil, user_agent: nil)
-            @api_key = api_key
-            @base_url = api_key ? @@BASE_URL_PROD : @@BASE_URL_TEST
-            @headers = {
-                'X-ListenAPI-Key' => @api_key ? @api_key : '',
-                'User-Agent' => user_agent ? user_agent : "podcasts-api-ruby #{VERSION}"
-            }
-        end    
-
-        protected
-        def get_response(response:)
-            if response.code == 200
-                return response
-            elsif response.code == 400
-                raise InvalidRequestError.new 'something wrong on your end (client side errors), e.g., missing required parameters'
-            elsif response.code == 401
-                raise AuthenticationError.new 'wrong api key or your account is suspended'
-            elsif response.code == 404
-                raise NotFoundError.new 'endpoint not exist, or podcast / episode not exist'
-            elsif response.code == 429
-                raise RateLimitError.new 'for FREE plan, exceeding the quota limit; or for all plans, sending too many requests too fast and exceeding the rate limit - https://www.listennotes.com/api/faq/#faq17'
-            else
-                raise PodcastApiError.new 'something wrong on our end (unexpected server errors)'
-            end
-        end
-
-        def send_http_request(http_method, *args)
-            begin
-                response = HTTParty.public_send(http_method, *args)
-            rescue SocketError
-                raise APIConnectionError.new 'Failed to connect to Listen API servers'
-            else
-                return get_response(response: response)
-            end
-        end
-
-        public
-        def search(**kwargs)
-            return send_http_request('get', "#{@base_url}/search", {query: kwargs, headers: @headers})
-        end
-
-        def search_episode_titles(**kwargs)
-            return send_http_request('get', "#{@base_url}/search_episode_titles", {query: kwargs, headers: @headers})
-        end
-
-        def typeahead(**kwargs)
-            return send_http_request('get', "#{@base_url}/typeahead", {query: kwargs, headers: @headers})
-        end
-        
-        def spellcheck(**kwargs)
-            return send_http_request('get', "#{@base_url}/spellcheck", {query: kwargs, headers: @headers})
-        end
-        
-        def fetch_related_searches(**kwargs)
-            return send_http_request('get', "#{@base_url}/related_searches", {query: kwargs, headers: @headers})
-        end
-        
-        def fetch_trending_searches(**kwargs)
-            return send_http_request('get', "#{@base_url}/trending_searches", {query: kwargs, headers: @headers})
-        end
-
-        def fetch_best_podcasts(**kwargs)
-            return send_http_request('get', "#{@base_url}/best_podcasts", {query: kwargs, headers: @headers})
-        end
-        
-        def fetch_podcast_by_id(**kwargs)
-            id = kwargs.delete(:id)
-            return send_http_request('get', "#{@base_url}/podcasts/#{id}", {query: kwargs, headers: @headers})
-        end        
-
-        def fetch_episode_by_id(**kwargs)
-            id = kwargs.delete(:id)
-            return send_http_request('get', "#{@base_url}/episodes/#{id}", {query: kwargs, headers: @headers})
-        end        
-
-        def batch_fetch_podcasts(**kwargs)
-            @headers['Content-Type'] = 'application/x-www-form-urlencoded'            
-            return send_http_request('post', "#{@base_url}/podcasts", {body: kwargs, headers: @headers})
-        end         
-
-        def batch_fetch_episodes(**kwargs)
-            @headers['Content-Type'] = 'application/x-www-form-urlencoded'            
-            return send_http_request('post', "#{@base_url}/episodes", {body: kwargs, headers: @headers})
-        end              
-
-        def fetch_curated_podcasts_list_by_id(**kwargs)
-            id = kwargs.delete(:id)            
-            return send_http_request('get', "#{@base_url}/curated_podcasts/#{id}", {query: kwargs, headers: @headers})
-        end      
-        
-        def fetch_curated_podcasts_lists(**kwargs)
-            return send_http_request('get', "#{@base_url}/curated_podcasts", {query: kwargs, headers: @headers})
-        end              
-        
-        def fetch_podcast_genres(**kwargs)
-            return send_http_request('get', "#{@base_url}/genres", {query: kwargs, headers: @headers})
-        end         
-        
-        def fetch_podcast_regions(**kwargs)
-            return send_http_request('get', "#{@base_url}/regions", {query: kwargs, headers: @headers})
-        end                   
-
-        def fetch_podcast_languages(**kwargs)
-            return send_http_request('get', "#{@base_url}/languages", {query: kwargs, headers: @headers})
-        end            
-
-        def just_listen(**kwargs)
-            return send_http_request('get', "#{@base_url}/just_listen", {query: kwargs, headers: @headers})
-        end           
-
-        def fetch_recommendations_for_podcast(**kwargs)
-            id = kwargs.delete(:id)            
-            return send_http_request('get', "#{@base_url}/podcasts/#{id}/recommendations", {query: kwargs, headers: @headers})
-        end           
-        
-        def fetch_recommendations_for_episode(**kwargs)
-            id = kwargs.delete(:id)            
-            return send_http_request('get', "#{@base_url}/episodes/#{id}/recommendations", {query: kwargs, headers: @headers})
-        end     
-        
-        def fetch_playlist_by_id(**kwargs)
-            id = kwargs.delete(:id)            
-            return send_http_request('get', "#{@base_url}/playlists/#{id}", {query: kwargs, headers: @headers})
-        end     
-        
-        def fetch_my_playlists(**kwargs)
-            return send_http_request('get', "#{@base_url}/playlists", {query: kwargs, headers: @headers})
-        end  
-        
-        def submit_podcast(**kwargs)
-            @headers['Content-Type'] = 'application/x-www-form-urlencoded'            
-            return send_http_request('post', "#{@base_url}/podcasts/submit", {body: kwargs, headers: @headers})
-        end       
-        
-        def delete_podcast(**kwargs)
-            id = kwargs.delete(:id)            
-            return send_http_request('delete', "#{@base_url}/podcasts/#{id}", {query: kwargs, headers: @headers})
-        end
-
-        def fetch_audience_for_podcast(**kwargs)
-            id = kwargs.delete(:id)            
-            return send_http_request('get', "#{@base_url}/podcasts/#{id}/audience", {query: kwargs, headers: @headers})
-        end
-        
-        def fetch_podcasts_by_domain(**kwargs)
-            domain_name = kwargs.delete(:domain_name)            
-            return send_http_request('get', "#{@base_url}/podcasts/domains/#{domain_name}", {query: kwargs, headers: @headers})
-        end        
+    def initialize(api_key: nil, user_agent: nil, timeout: 30)
+      unless (timeout.is_a?(Integer) || timeout.is_a?(Float)) && timeout.finite? && timeout.positive?
+        raise ArgumentError, 'timeout must be a positive, finite number of seconds'
+      end
+      @base_url = (api_key.nil? || api_key.empty?) ? BASE_URL_TEST : BASE_URL_PROD
+      @headers = {
+        'X-ListenAPI-Key' => api_key.to_s.dup.freeze,
+        'User-Agent' => (user_agent || "podcast-api-ruby #{VERSION}").dup.freeze
+      }.freeze
+      @timeout = timeout
     end
 
+    protected
+
+    def request_api(method, path, query_names, kwargs)
+      params = kwargs.transform_keys(&:to_s)
+      path = path.gsub(/\{([^}]+)\}/) do
+        name = Regexp.last_match(1)
+        value = params.delete(name)
+        if value.nil? || value.to_s.empty?
+          raise InvalidRequestError, "Missing required path parameter: #{name}"
+        end
+        URI.encode_www_form_component(value.to_s).gsub('+', '%20')
+      end
+      params.reject! { |_, value| value.nil? }
+      query, body = params.partition { |name, _| %w[GET DELETE].include?(method) || query_names.include?(name) }.map(&:to_h)
+      options = {
+        headers: @headers.dup, query: query, timeout: @timeout,
+        # Net::HTTP otherwise retries some write methods on broken connections.
+        follow_redirects: false, max_retries: 0
+      }
+      if %w[POST PUT].include?(method)
+        options[:headers]['Content-Type'] = 'application/x-www-form-urlencoded'
+        options[:body] = URI.encode_www_form(body)
+      end
+      send_http_request(method.downcase, "#{@base_url}#{path}", options)
+    end
+
+    def send_http_request(http_method, *args)
+      response = HTTParty.public_send(http_method, *args)
+      get_response(response: response)
+    rescue SocketError, SystemCallError, Timeout::Error, IOError, EOFError, OpenSSL::SSL::SSLError => error
+      raise APIConnectionError, "Failed to connect to Listen API servers (#{error.class})"
+    end
+
+    def get_response(response:)
+      return response if (200..299).cover?(response.code)
+
+      error_class = {
+        400 => InvalidRequestError,
+        401 => AuthenticationError,
+        403 => PermissionDeniedError,
+        404 => NotFoundError,
+        429 => RateLimitError
+      }.fetch(response.code, PodcastApiError)
+      message = "Listen API returned HTTP #{response.code}"
+      begin
+        payload = JSON.parse(response.body.to_s)
+        detail = payload['error'] || payload['message'] if payload.is_a?(Hash)
+        message += ": #{detail}" if detail.is_a?(String) && !detail.empty?
+      rescue JSON::ParserError
+        # Preserve a useful status message for HTML, empty, or malformed bodies.
+      end
+      raise error_class.new(message, response: response)
+    end
+  end
 end
