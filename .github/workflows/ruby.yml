@@ -1,34 +1,47 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
-# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
-
 name: Ruby CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   test:
-
+    name: Test (Ruby ${{ matrix.ruby-version }})
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
+      fail-fast: false
       matrix:
-        ruby-version: ['2.6', '2.7', '3.0']
-
+        ruby-version: ['3.3', '4.0']
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Setup bundler
-      run: gem install bundler:1.17.2
-    - name: Run tests
-      run: bundle exec rake
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler: '4.0.20'
+          bundler-cache: true
+      - run: bundle exec rake test
+      - run: bundle exec rake build
+      - name: Check standalone gem installation
+        run: |
+          sdk_version=$(ruby -r ./lib/version -e 'print PodcastApi::VERSION')
+          gem install "pkg/podcast_api-$sdk_version.gem" --no-document
+          cd /tmp
+          ruby -r podcast_api -e 'abort unless PodcastApi::VERSION == ARGV.fetch(0) && PodcastApi::Client.new.respond_to?(:add_playlist_item)' "$sdk_version"
+  integration:
+    name: Integration (public mock API)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '4.0'
+          bundler: '4.0.20'
+          bundler-cache: true
+      - run: bundle exec rake integration
