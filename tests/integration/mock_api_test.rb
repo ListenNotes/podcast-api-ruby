@@ -78,6 +78,10 @@ class MockApiTest < Test::Unit::TestCase
       elsif operation['operationId'] == 'deletePlaylistItem'
         assert_equal true, payload.fetch('deleted')
         assert_kind_of Integer, payload.fetch('id')
+      elsif operation['operationId'] == 'deletePlaylist'
+        assert_equal true, payload.fetch('deleted')
+        assert_equal operation.fetch('example_params').fetch('id'), payload.fetch('id')
+        assert_nil response.request.options[:body]
       end
     end
   end

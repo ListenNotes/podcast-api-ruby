@@ -138,6 +138,11 @@ module PodcastApi
                   [], kwargs)
     end
 
+    def delete_playlist(**kwargs)
+      request_api('DELETE', '/playlists/{id}',
+                  [], kwargs)
+    end
+
     def add_playlist_item(**kwargs)
       request_api('POST', '/playlists/{id}/items',
                   [], kwargs)
