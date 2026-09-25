@@ -32,7 +32,7 @@ jobs:
           sdk_version=$(ruby -r ./lib/version -e 'print PodcastApi::VERSION')
           gem install "pkg/podcast_api-$sdk_version.gem" --no-document
           cd /tmp
-          ruby -r podcast_api -e 'abort unless PodcastApi::VERSION == ARGV.fetch(0) && PodcastApi::Client.new.respond_to?(:add_playlist_item)' "$sdk_version"
+          ruby -r podcast_api -e 'abort unless PodcastApi::VERSION == ARGV.fetch(0) && PodcastApi::Client.new.respond_to?(:delete_playlist)' "$sdk_version"
   integration:
     name: Integration (public mock API)
     runs-on: ubuntu-latest

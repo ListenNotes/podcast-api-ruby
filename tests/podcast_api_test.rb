@@ -79,7 +79,28 @@ class PodcastApiTest < Test::Unit::TestCase
     assert_requested stub, times: 1
   end
 
+  def test_delete_playlist_encodes_id_without_query_or_body
+    params = {id: 'a/b ?#%+é'}
+    before = params.dup
+    stub = stub_request(:delete, MOCK + '/playlists/a%2Fb%20%3F%23%25%2B%C3%A9')
+           .with(query: {}).with { |req| req.body.nil? || req.body.empty? }
+           .to_return(body: JSON.generate(id: params[:id], deleted: true),
+                      headers: {'Content-Type' => 'application/json'})
+    response = @client.delete_playlist(**params)
+    assert_kind_of HTTParty::Response, response
+    assert_equal({'id' => params[:id], 'deleted' => true}, response.parsed_response)
+    assert_equal before, params
+    assert_nil response.request.options[:body]
+    assert_false response.request.options[:headers].key?('Content-Type')
+    assert_requested stub, times: 1
+  end
+
   def test_missing_path_parameters_fail_before_network_access
+    [{}, {id: nil}, {id: ''}].each do |params|
+      error = assert_raise(PodcastApi::InvalidRequestError) { @client.delete_playlist(**params) }
+      assert_equal 'Missing required path parameter: id', error.message
+      assert_nil error.response
+    end
     [{}, {id: nil}, {id: ''}, {id: 'abc'}, {id: 'abc', item_id: nil}, {id: 'abc', item_id: ''}].each do |params|
       error = assert_raise(PodcastApi::InvalidRequestError) { @client.delete_playlist_item(**params) }
       assert_match(/Missing required path parameter:/, error.message)
@@ -134,14 +155,17 @@ class PodcastApiTest < Test::Unit::TestCase
    403 => PodcastApi::PermissionDeniedError, 404 => PodcastApi::NotFoundError,
    429 => PodcastApi::RateLimitError, 500 => PodcastApi::PodcastApiError}.each do |status, klass|
     define_method("test_error_#{status}_preserves_server_message_and_response") do
-      stub = stub_request(:post, MOCK + '/playlists').to_return(
-        status: status, body: '{"error":"Specific API error"}', headers: {'X-ListenAPI-Usage' => '5'}
-      )
-      error = assert_raise(klass) { @client.create_playlist(name: 'test') }
-      assert_match(/Specific API error/, error.message)
-      assert_equal status, error.response.code
-      assert_equal '5', error.response.headers['X-ListenAPI-Usage']
-      assert_requested stub, times: 1
+      [[:post, '/playlists', :create_playlist, {name: 'test'}],
+       [:delete, '/playlists/abc', :delete_playlist, {id: 'abc'}]].each do |method, path, func, params|
+        stub = stub_request(method, MOCK + path).to_return(
+          status: status, body: '{"error":"Specific API error"}', headers: {'X-ListenAPI-Usage' => '5'}
+        )
+        error = assert_raise(klass) { @client.public_send(func, **params) }
+        assert_match(/Specific API error/, error.message)
+        assert_equal status, error.response.code
+        assert_equal '5', error.response.headers['X-ListenAPI-Usage']
+        assert_requested stub, times: 1
+      end
     end
   end
 
@@ -164,11 +188,17 @@ class PodcastApiTest < Test::Unit::TestCase
 
   def test_redirect_is_not_followed
     [301, 302, 303, 307, 308].each do |status|
+      WebMock.reset!
       stub_request(:post, MOCK + '/playlists').to_return(status: status, headers: {'Location' => PROD + '/playlists'})
       error = assert_raise(PodcastApi::PodcastApiError) { @client.create_playlist(name: 'test') }
       assert_equal status, error.response.code
+      stub = stub_request(:delete, MOCK + '/playlists/abc')
+             .to_return(status: status, headers: {'Location' => PROD + '/playlists/abc'})
+      error = assert_raise(PodcastApi::PodcastApiError) { @client.delete_playlist(id: 'abc') }
+      assert_equal status, error.response.code
+      assert_requested stub, times: 1
+      assert_not_requested :any, /listen-api\.listennotes\.com/
     end
-    assert_not_requested :any, /listen-api\.listennotes\.com/
   end
 
   def test_connection_failures_are_wrapped_without_retries
@@ -177,6 +207,9 @@ class PodcastApiTest < Test::Unit::TestCase
       WebMock.reset!
       stub = stub_request(:put, MOCK + '/playlists/abc').to_raise(klass.new('connection failed'))
       assert_raise(PodcastApi::APIConnectionError) { @client.update_playlist(id: 'abc', description: '') }
+      assert_requested stub, times: 1
+      stub = stub_request(:delete, MOCK + '/playlists/abc').to_raise(klass.new('connection failed'))
+      assert_raise(PodcastApi::APIConnectionError) { @client.delete_playlist(id: 'abc') }
       assert_requested stub, times: 1
     end
   end
