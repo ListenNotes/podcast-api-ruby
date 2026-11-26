@@ -57,7 +57,11 @@ class MockApiTest < Test::Unit::TestCase
     define_method("test_mock_#{operation.fetch('func')}") do
       params = operation.fetch('example_params').dup
       path = operation.fetch('path').gsub(/\{([^}]+)\}/) { params.delete(Regexp.last_match(1)).to_s }
-      status = %w[createPlaylist addPlaylistItem].include?(operation['operationId']) ? 201 : 200
+      status = case operation['operationId']
+               when 'createPlaylist', 'addPlaylistItem' then 201
+               when 'transcribeEpisode' then 202
+               else 200
+               end
       response = @client.public_send(operation.fetch('func'), **operation.fetch('example_params'))
       payload = assert_response(response, operation.fetch('method'), path, status)
       unless %w[POST PUT].include?(operation['method'])
@@ -78,6 +82,11 @@ class MockApiTest < Test::Unit::TestCase
       elsif operation['operationId'] == 'deletePlaylistItem'
         assert_equal true, payload.fetch('deleted')
         assert_kind_of Integer, payload.fetch('id')
+      elsif operation['operationId'] == 'transcribeEpisode'
+        assert_equal 'queued', payload.fetch('status')
+      elsif operation['operationId'] == 'getEpisodeTranscript'
+        assert_equal 'completed', payload.fetch('status')
+        assert_not_empty payload.fetch('download_urls')
       elsif operation['operationId'] == 'deletePlaylist'
         assert_equal true, payload.fetch('deleted')
         assert_equal operation.fetch('example_params').fetch('id'), payload.fetch('id')
