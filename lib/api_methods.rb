@@ -158,5 +158,25 @@ module PodcastApi
                   [], kwargs)
     end
 
+    def estimate_episode_transcription(**kwargs)
+      request_api('GET', '/episodes/{id}/transcript/estimate',
+                  [], kwargs)
+    end
+
+    def transcribe_episode(**kwargs)
+      request_api('POST', '/episodes/{id}/transcript',
+                  [], kwargs)
+    end
+
+    def get_episode_transcript(**kwargs)
+      request_api('GET', '/episodes/{id}/transcript',
+                  [], kwargs)
+    end
+
+    def list_transcripts(**kwargs)
+      request_api('GET', '/transcripts',
+                  ['limit', 'cursor'], kwargs)
+    end
+
   end
 end
